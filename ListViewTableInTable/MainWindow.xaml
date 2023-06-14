@@ -20,14 +20,14 @@
                                 Margin="40">
                         <StackPanel>
                             <Image Source="{Binding Photo}"
-                                   Height="190" 
+                                   Height="190"
                                    Width="220"
                                    RenderOptions.BitmapScalingMode="Fant"
-                                   Stretch="Fill"/>
+                                   Stretch="Fill" />
                             <TextBlock Text="{Binding Name, StringFormat='Name of the dish: {0}'}"
                                        TextWrapping="Wrap"
                                        Width="200"
-                                       FontSize="18"/>
+                                       FontSize="18" />
                         </StackPanel>
                         <StackPanel>
                             <Expander Header="View step-by-step recipe"
@@ -41,10 +41,10 @@
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel VerticalAlignment="Top">
-                                                <TextBlock Text="{Binding ProcessDescription, StringFormat='- {0}'}" 
+                                                <TextBlock Text="{Binding ProcessDescription, StringFormat='- {0}'}"
                                                            TextWrapping="Wrap"
                                                            HorizontalAlignment="Left"
-                                                           Width="250"/>
+                                                           Width="250" />
                                                 <TextBlock Text="{Binding Time, StringFormat=' {0} minutes'}" />
                                                 <Expander Header="View ingredients"
                                                           FontSize="16">
