@@ -1,0 +1,35 @@
+﻿<Window x:Class="Cards.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cards"
+        mc:Ignorable="d"
+        Title="Cards" MinHeight="450" MinWidth="600">
+    <Grid>
+        <ListView x:Name="LVTeams"
+                  d:ItemsSource="{d:SampleData ItemCount=16}"
+                  MinWidth="650"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  Margin="10">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Image Source="{Binding Logo}" 
+                               Height="150"/>
+                        <TextBlock Text="{Binding TeamName}" 
+                                   FontSize="24"/>
+                        <TextBlock Text="{Binding Division.Name}"
+                                   FontSize="26"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+    </Grid>
+</Window>
