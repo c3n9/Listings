@@ -5,23 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cards"
         mc:Ignorable="d"
-        Title="Cards" MinHeight="450" MinWidth="600">
+        Title="Cards"
+        MinHeight="450"
+        MinWidth="600">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button x:Name="BUp"
+                    Content="&#5169;" 
+                    FontSize="24"
+                    Width="200"
+                    Margin="5"
+                    HorizontalAlignment="Center"
+                    Click="BUp_Click"/>
+            <Button x:Name="BDown"
+                    Content="&#5167;"
+                    Width="200"
+                    FontSize="24"
+                    Margin="5"
+                    HorizontalAlignment="Center"
+                    Click="BDown_Click"/>
+        </StackPanel>
         <ListView x:Name="LVTeams"
+                  Grid.Row="1"
                   d:ItemsSource="{d:SampleData ItemCount=16}"
                   MinWidth="650"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                  Margin="10">
+                  Margin="10"
+                  HorizontalContentAlignment="Center">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <Image Source="{Binding Logo}" 
-                               Height="150"/>
-                        <TextBlock Text="{Binding TeamName}" 
-                                   FontSize="24"/>
+                    <StackPanel Margin="20">
+                        <Image Source="{Binding Logo}"
+                               Height="150" 
+                               RenderOptions.BitmapScalingMode="Fant"/>
+                        <TextBlock Text="{Binding TeamName}"
+                                   FontSize="24" />
                         <TextBlock Text="{Binding Division.Name}"
                                    FontSize="26"
-                                   HorizontalAlignment="Center"/>
+                                   HorizontalAlignment="Center" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

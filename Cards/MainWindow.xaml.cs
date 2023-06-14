@@ -23,7 +23,25 @@ namespace Cards
         public MainWindow()
         {
             InitializeComponent();
-            LVTeams.ItemsSource = App.DB.Team.ToList();
+            Refresh(true);
+        }
+        private void Refresh(bool isUp)
+        {
+            var teams = App.DB.Team.ToList();
+            if(isUp)
+                teams = teams.OrderBy(t => t.TeamName).ToList();
+            if(isUp == false)
+                teams = teams.OrderByDescending(t => t.TeamName).ToList();
+            LVTeams.ItemsSource = teams;
+        }
+        private void BUp_Click(object sender, RoutedEventArgs e)
+        {
+            Refresh(true);
+        }
+
+        private void BDown_Click(object sender, RoutedEventArgs e)
+        {
+            Refresh(false);
         }
     }
 }
